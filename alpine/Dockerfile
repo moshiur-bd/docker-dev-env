@@ -14,6 +14,13 @@ WORKDIR /usr/bin
 RUN wget https://github.com/moshiur-bd/clangd-binary-for-alpine-linux-m1-chip/raw/master/clangd
 RUN chmod +x clangd
 
+#setup mango
+WORKDIR /tmp
+RUN wget https://github.com/skmonir/mango/releases/download/v1.0/mango_v1.0_linux_arm64.zip
+RUN unzip ./mango_v1.0_linux_arm64.zip
+RUN mv mango /usr/bin
+RUN chmod +x /usr/bin/clangd
+
 #setup cpp repo
 WORKDIR /root/repos
 RUN git clone https://github.com/moshiur-bd/contest-submissions-cpp.git
